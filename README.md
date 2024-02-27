@@ -1,2 +1,2 @@
 # fwestling.github.io
-Public portfolio page
+Fred's public page
