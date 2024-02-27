@@ -1,5 +1,11 @@
 # fwestling-site
 
+## 0.0.2
+
+### Patch Changes
+
+- Updated CI to hopefully create a tag and release on PR merge?
+
 ## 0.0.1
 
 ### Patch Changes
