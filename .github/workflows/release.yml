@@ -1,15 +1,25 @@
 name: Release
 
 on:
-  push:
+  pull_request:
+    types:
+      - closed
     branches:
-      - main
+      - "changeset-release/main"
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
+  if_merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo The PR was merged
+
   release:
     name: Release
+    needs: if_merged
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
