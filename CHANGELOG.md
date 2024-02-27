@@ -1,5 +1,11 @@
 # fwestling-site
 
+## 0.0.3
+
+### Patch Changes
+
+- d545f57: Updated deploy action to test release
+
 ## 0.0.2
 
 ### Patch Changes
