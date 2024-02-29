@@ -1,5 +1,16 @@
 # fwestling-site
 
+## 0.1.0
+
+### Minor Changes
+
+- 983a8ca: Added testing
+- 983a8ca: Added biome formatter/linter
+
+### Patch Changes
+
+- 81ff8ca: Added formatting to precommits and testing to the deployment process
+
 ## 0.0.3
 
 ### Patch Changes
