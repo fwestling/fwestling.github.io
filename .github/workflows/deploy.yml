@@ -20,6 +20,9 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  test:
+    uses: ./.github/workflows/test.yml
+    name: Test
   build:
     runs-on: ubuntu-latest
     steps:
