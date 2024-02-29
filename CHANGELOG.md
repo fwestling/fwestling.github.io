@@ -1,5 +1,11 @@
 # fwestling-site
 
+## 0.1.1
+
+### Patch Changes
+
+- 14c5d8d: Updated CI scripts
+
 ## 0.1.0
 
 ### Minor Changes
