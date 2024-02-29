@@ -29,6 +29,6 @@
     /* Suppresses ts-jest error */
     "esModuleInterop": true
   },
-  "include": ["src", "./jest.setup.ts"],
+  "include": ["src", "./jest.setup.ts", "src/tamagui.config.tsfig.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
