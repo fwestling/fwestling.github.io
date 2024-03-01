@@ -12,14 +12,6 @@ const theme = extendTheme({
       card: "#0A99FF",
     },
   },
-  sizes: {
-    xl: {
-      h: "56px",
-      fontSize: "lg",
-      px: "32px",
-      bg: "#9747FF",
-    },
-  },
 });
 
 export default theme;
