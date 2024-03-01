@@ -1,5 +1,5 @@
 import { defineConfig, PluginOption } from "vite";
-import react from '@vitejs/plugin-react-swc'
+import react from "@vitejs/plugin-react-swc";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { visualizer } from "rollup-plugin-visualizer";
 import svgr from "vite-plugin-svgr";
@@ -7,7 +7,6 @@ import svgr from "vite-plugin-svgr";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-
     tsconfigPaths(),
     react(),
 
@@ -17,8 +16,12 @@ export default defineConfig({
       },
     }),
     visualizer() as PluginOption,
-    
   ],
+  server: {
+    watch: {
+      usePolling: true,
+    },
+  },
   build: {
     outDir: "dist",
     sourcemap: true,
@@ -30,4 +33,4 @@ export default defineConfig({
       },
     },
   },
-})
+});
