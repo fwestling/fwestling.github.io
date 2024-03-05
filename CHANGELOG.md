@@ -1,5 +1,16 @@
 # fwestling-site
 
+## 0.2.0
+
+### Minor Changes
+
+- 2d80668: Added tanstack router with file based routing
+- 4758ef0: Added Chakra UI provider
+
+### Patch Changes
+
+- 1731441: Set up chakra theme and navbar
+
 ## 0.1.1
 
 ### Patch Changes
