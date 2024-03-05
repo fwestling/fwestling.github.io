@@ -23,7 +23,8 @@
     /* absolute import */
     "baseUrl": "./src",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@/icons": ["./components/icons/*"]
     },
 
     /* Suppresses ts-jest error */
