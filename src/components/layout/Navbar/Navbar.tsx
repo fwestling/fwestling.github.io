@@ -1,11 +1,8 @@
-import { Box, Collapse, Flex, useBoolean } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import Logo from "../Logo/Logo";
-import MenuToggle from "../MenuToggle/MenuToggle";
 import NavbarContent from "./NavbarContent";
 
 const Navbar = () => {
-  const [isOpen, { toggle }] = useBoolean();
-
   return (
     <Flex
       flex={0}
