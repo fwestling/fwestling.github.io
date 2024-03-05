@@ -5,8 +5,10 @@ const NavbarContent = () => {
   return (
     <Fragment>
       <MenuItem>Home</MenuItem>
-      <MenuItem>Projects</MenuItem>
-      <MenuItem isLast>About Us</MenuItem>
+      <MenuItem to="/projects">Projects</MenuItem>
+      <MenuItem to="/about" isLast>
+        About Us
+      </MenuItem>
     </Fragment>
   );
 };

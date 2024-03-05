@@ -1,19 +1,32 @@
-import { ChakraProvider } from "@chakra-ui/react";
+import { RouterProvider, createRouter } from "@tanstack/react-router";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
-import "./index.css";
-import theme from "./style/theme.ts";
 
-const root = document.getElementById("root");
+// Import the generated route tree
+import { routeTree } from "./routeTree.gen";
+import { ChakraProvider } from "@chakra-ui/react";
+import theme from "./style/theme";
 
-if (!root) {
-  throw new Error("No root element found");
+// Create a new router instance
+const router = createRouter({ routeTree });
+
+// Register the router instance for type safety
+declare module "@tanstack/react-router" {
+  interface Register {
+    router: typeof router;
+  }
 }
-ReactDOM.createRoot(root).render(
-  <React.StrictMode>
-    <ChakraProvider theme={theme}>
-      <App />
-    </ChakraProvider>
-  </React.StrictMode>
-);
+
+// Render the app
+const rootElement = document.getElementById("app");
+if (!rootElement) throw new Error("No root element found");
+if (!rootElement.innerHTML) {
+  const root = ReactDOM.createRoot(rootElement);
+  root.render(
+    <React.StrictMode>
+      <ChakraProvider theme={theme}>
+        <RouterProvider router={router} />
+      </ChakraProvider>
+    </React.StrictMode>
+  );
+}
