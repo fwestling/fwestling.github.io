@@ -16,16 +16,34 @@ import { Route as rootRoute } from './routes/__root'
 
 // Create Virtual Routes
 
+const VolunteeringLazyImport = createFileRoute('/volunteering')()
+const StackLazyImport = createFileRoute('/stack')()
 const ProjectsLazyImport = createFileRoute('/projects')()
+const ContactLazyImport = createFileRoute('/contact')()
 const AboutLazyImport = createFileRoute('/about')()
 const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
 
+const VolunteeringLazyRoute = VolunteeringLazyImport.update({
+  path: '/volunteering',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/volunteering.lazy').then((d) => d.Route))
+
+const StackLazyRoute = StackLazyImport.update({
+  path: '/stack',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/stack.lazy').then((d) => d.Route))
+
 const ProjectsLazyRoute = ProjectsLazyImport.update({
   path: '/projects',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/projects.lazy').then((d) => d.Route))
+
+const ContactLazyRoute = ContactLazyImport.update({
+  path: '/contact',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/contact.lazy').then((d) => d.Route))
 
 const AboutLazyRoute = AboutLazyImport.update({
   path: '/about',
@@ -49,8 +67,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutLazyImport
       parentRoute: typeof rootRoute
     }
+    '/contact': {
+      preLoaderRoute: typeof ContactLazyImport
+      parentRoute: typeof rootRoute
+    }
     '/projects': {
       preLoaderRoute: typeof ProjectsLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/stack': {
+      preLoaderRoute: typeof StackLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/volunteering': {
+      preLoaderRoute: typeof VolunteeringLazyImport
       parentRoute: typeof rootRoute
     }
   }
@@ -61,7 +91,10 @@ declare module '@tanstack/react-router' {
 export const routeTree = rootRoute.addChildren([
   IndexLazyRoute,
   AboutLazyRoute,
+  ContactLazyRoute,
   ProjectsLazyRoute,
+  StackLazyRoute,
+  VolunteeringLazyRoute,
 ])
 
 /* prettier-ignore-end */
