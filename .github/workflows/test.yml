@@ -43,3 +43,9 @@ jobs:
 
       - name: Test
         run: pnpm test
+
+      - name: Upload artifact for test stats
+        uses: actions/upload-artifact@v4
+        with:
+          name: tests
+          path: ./test-results

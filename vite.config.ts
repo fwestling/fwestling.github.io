@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig, PluginOption } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import tsconfigPaths from "vite-tsconfig-paths";
@@ -7,6 +8,15 @@ import { TanStackRouterVite } from "@tanstack/router-vite-plugin";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  test: {
+    globals: true,
+    environment: 'happy-dom',
+    coverage: {
+      provider: 'istanbul' // or 'v8'
+    },
+    reporters: ['default', 'github-actions', 'html'],
+    outputFile: 'test-results/test-report.html',
+  },
   plugins: [
     tsconfigPaths(),
     react(),
