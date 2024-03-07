@@ -1,59 +1,132 @@
-import { Fragment } from "react";
-import MenuItem from "../MenuItem/MenuItem";
+import { useAppTheme } from "@/style/theme";
 import {
+	Box,
 	Button,
-	Collapse,
+	Divider,
+	IconButton,
 	Menu,
 	MenuButton,
 	MenuList,
-	useBoolean,
+	useColorMode,
+	useColorModeValue,
+	useMediaQuery,
 } from "@chakra-ui/react";
-import DownIcon from "@/icons/DownIcon";
+import { Link } from "@tanstack/react-router";
+import { Fragment } from "react";
+import {
+	IoBriefcase,
+	IoBriefcaseOutline,
+	IoChevronDown,
+	IoEllipsisVertical,
+	IoHome,
+	IoLogoGithub,
+	IoLogoLinkedin,
+	IoMail,
+	IoMailOutline,
+	IoMenu,
+	IoMoonOutline,
+	IoPerson,
+	IoSunnyOutline,
+} from "react-icons/io5";
+import MenuItem from "../MenuItem/MenuItem";
+import MenuIconButton from "../MenuIconButton/MenuIconButton";
 
-type Props = {
-	mobile?: boolean;
-};
-const NavbarContent = ({ mobile = false }: Props) => {
-	const [isCollapsed, { toggle }] = useBoolean();
+const NavbarContent = () => {
+	const theme = useAppTheme();
+	const textColor = useColorModeValue("gray.800", "gray.100");
+	const [isMd] = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
+	const { colorMode, toggleColorMode } = useColorMode();
 
 	return (
 		<Fragment>
-			<MenuItem to="/about">About</MenuItem>
-			<MenuItem to="/projects">Projects</MenuItem>
-			<MenuItem to="/contact">Contact</MenuItem>
-			{!mobile ? (
-				<Menu>
-					{({ isOpen, onClose }) => (
-						<>
+			<Box display={["block", "none"]}>
+				<MenuItem to="/" title="Home" icon={<IoHome />} />
+			</Box>
+			<MenuItem to="/about" title="About" icon={<IoPerson />} />
+			<MenuItem to="/projects" title="Projects" icon={<IoBriefcase />} />
+			<MenuItem to="/contact" title="Contact" icon={<IoMail />} />
+			<Menu>
+				{({ isOpen, onClose }) => (
+					<>
+						{isMd ? (
+							<MenuButton
+								isActive={isOpen}
+								as={IconButton}
+								icon={<IoMenu />}
+								variant={"link"}
+								color={textColor}
+							/>
+						) : (
 							<MenuButton
 								isActive={isOpen}
 								as={Button}
-								rightIcon={<DownIcon />}
+								variant={"link"}
+								color={textColor}
+								rightIcon={<IoChevronDown />}
 							>
 								More
 							</MenuButton>
-							<MenuList>
-								<MenuItem onClick={onClose} to="/stack">
+						)}
+						<MenuList
+							display="flex"
+							flexDirection={"column"}
+							justifyContent="flex-start"
+							gap={"16px"}
+							p={4}
+						>
+							<Link to="/stack">
+								<Button variant="link" color={textColor} onClick={onClose}>
 									Tech stack
-								</MenuItem>
-								<MenuItem onClick={onClose} to="/volunteering">
+								</Button>
+							</Link>
+							<Link to="/stack">
+								<Button variant="link" color={textColor} onClick={onClose}>
 									Volunteering
-								</MenuItem>
-							</MenuList>
-						</>
-					)}
-				</Menu>
-			) : (
-				<Fragment>
-					<Button onClick={toggle} bg="transparent" border="1px">
-						More
-					</Button>
-					<Collapse in={!isCollapsed} animateOpacity>
-						<MenuItem to="/stack">Tech stack</MenuItem>
-						<MenuItem to="/volunteering">Volunteering</MenuItem>
-					</Collapse>
-				</Fragment>
-			)}
+								</Button>
+							</Link>
+							<Divider />
+							<a
+								href="https://au.linkedin.com/in/fredwestling"
+								target="_blank"
+								rel="noreferrer"
+							>
+								<Button
+									variant={"link"}
+									leftIcon={<IoLogoLinkedin />}
+									aria-label="Link to Fred's LinkedIn profile"
+								>
+									LinkedIn
+								</Button>
+							</a>
+							<a
+								href="https://github.com/fwestling"
+								target="_blank"
+								rel="noreferrer"
+							>
+								<Button
+									variant={"link"}
+									leftIcon={<IoLogoGithub />}
+									aria-label="Link to Fred's GitHub account"
+								>
+									Github
+								</Button>
+							</a>
+
+							<Button
+								display={["block", "none"]}
+								variant="ghost"
+								color={textColor}
+								leftIcon={
+									colorMode === "dark" ? <IoMoonOutline /> : <IoSunnyOutline />
+								}
+								onClick={toggleColorMode}
+							>
+								Toggle color mode
+							</Button>
+						</MenuList>
+					</>
+				)}
+			</Menu>
 		</Fragment>
 	);
 };

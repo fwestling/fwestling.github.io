@@ -1,22 +1,30 @@
-import { Box, Collapse, Flex, useBoolean } from "@chakra-ui/react";
+import {
+	Box,
+	Collapse,
+	Flex,
+	useBoolean,
+	useColorModeValue,
+} from "@chakra-ui/react";
 import Logo from "../Logo/Logo";
 import MenuToggle from "../MenuToggle/MenuToggle";
 import NavbarContent from "./NavbarContent";
 
 const MobileNavbar = () => {
 	const [isOpen, { toggle }] = useBoolean();
+	const navBg = useColorModeValue("whiteAlpha.300", "blackAlpha.300");
 
 	return (
 		<Flex
-			flex={0}
 			as="nav"
-			border="1px"
-			align="center"
 			justify="space-between"
-			wrap="wrap"
-			padding="1.5rem"
-			width="100%"
-			bg="purple.500"
+			position="fixed"
+			bottom={0}
+			left={0}
+			right={0}
+			margin={8}
+			padding="10px 16px"
+			bg={navBg}
+			borderRadius="12px"
 		>
 			<Flex align="center" width="100%" justifyContent="space-between">
 				<Logo />
@@ -29,7 +37,7 @@ const MobileNavbar = () => {
 					gap={16}
 					flexGrow={1}
 				>
-					<NavbarContent mobile />
+					<NavbarContent />
 				</Box>
 			</Collapse>
 			{/* <Box
