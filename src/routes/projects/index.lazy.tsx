@@ -2,7 +2,6 @@ import ProjectCard from "@/components/projects/ProjectCard/ProjectCard";
 import projects from "@/data/projects";
 import { Box, Heading } from "@chakra-ui/react";
 import { createLazyFileRoute } from "@tanstack/react-router";
-import { Fragment } from "react/jsx-runtime";
 
 const Projects = () => {
   return (
