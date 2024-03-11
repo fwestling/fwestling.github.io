@@ -18,10 +18,13 @@ import { Route as rootRoute } from './routes/__root'
 
 const VolunteeringLazyImport = createFileRoute('/volunteering')()
 const StackLazyImport = createFileRoute('/stack')()
-const ProjectsLazyImport = createFileRoute('/projects')()
 const ContactLazyImport = createFileRoute('/contact')()
 const AboutLazyImport = createFileRoute('/about')()
 const IndexLazyImport = createFileRoute('/')()
+const ProjectsIndexLazyImport = createFileRoute('/projects/')()
+const ProjectsDemetricLazyImport = createFileRoute('/projects/demetric')()
+const ProjectsBuiltviewLazyImport = createFileRoute('/projects/builtview')()
+const ProjectsAusfirstLazyImport = createFileRoute('/projects/ausfirst')()
 
 // Create/Update Routes
 
@@ -34,11 +37,6 @@ const StackLazyRoute = StackLazyImport.update({
   path: '/stack',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/stack.lazy').then((d) => d.Route))
-
-const ProjectsLazyRoute = ProjectsLazyImport.update({
-  path: '/projects',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/projects.lazy').then((d) => d.Route))
 
 const ContactLazyRoute = ContactLazyImport.update({
   path: '/contact',
@@ -54,6 +52,34 @@ const IndexLazyRoute = IndexLazyImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+
+const ProjectsIndexLazyRoute = ProjectsIndexLazyImport.update({
+  path: '/projects/',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./routes/projects/index.lazy').then((d) => d.Route),
+)
+
+const ProjectsDemetricLazyRoute = ProjectsDemetricLazyImport.update({
+  path: '/projects/demetric',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./routes/projects/demetric.lazy').then((d) => d.Route),
+)
+
+const ProjectsBuiltviewLazyRoute = ProjectsBuiltviewLazyImport.update({
+  path: '/projects/builtview',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./routes/projects/builtview.lazy').then((d) => d.Route),
+)
+
+const ProjectsAusfirstLazyRoute = ProjectsAusfirstLazyImport.update({
+  path: '/projects/ausfirst',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./routes/projects/ausfirst.lazy').then((d) => d.Route),
+)
 
 // Populate the FileRoutesByPath interface
 
@@ -71,16 +97,28 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactLazyImport
       parentRoute: typeof rootRoute
     }
-    '/projects': {
-      preLoaderRoute: typeof ProjectsLazyImport
-      parentRoute: typeof rootRoute
-    }
     '/stack': {
       preLoaderRoute: typeof StackLazyImport
       parentRoute: typeof rootRoute
     }
     '/volunteering': {
       preLoaderRoute: typeof VolunteeringLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/projects/ausfirst': {
+      preLoaderRoute: typeof ProjectsAusfirstLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/projects/builtview': {
+      preLoaderRoute: typeof ProjectsBuiltviewLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/projects/demetric': {
+      preLoaderRoute: typeof ProjectsDemetricLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/projects/': {
+      preLoaderRoute: typeof ProjectsIndexLazyImport
       parentRoute: typeof rootRoute
     }
   }
@@ -92,9 +130,12 @@ export const routeTree = rootRoute.addChildren([
   IndexLazyRoute,
   AboutLazyRoute,
   ContactLazyRoute,
-  ProjectsLazyRoute,
   StackLazyRoute,
   VolunteeringLazyRoute,
+  ProjectsAusfirstLazyRoute,
+  ProjectsBuiltviewLazyRoute,
+  ProjectsDemetricLazyRoute,
+  ProjectsIndexLazyRoute,
 ])
 
 /* prettier-ignore-end */
