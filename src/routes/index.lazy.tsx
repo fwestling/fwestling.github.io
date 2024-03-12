@@ -1,8 +1,12 @@
-import { Link, createLazyFileRoute } from "@tanstack/react-router";
+import Swedebro from "@/assets/swedebro.png";
+import TechStack from "@/assets/techstack.png";
+import Portrait from "@/components/atomic/Portrait/Portrait";
+import PressableCard from "@/components/atomic/PressableCard/PressableCard";
+import ProjectCard from "@/components/projects/ProjectCard/ProjectCard";
+import projects from "@/data/projects";
 import {
   Box,
   Button,
-  Card,
   CardBody,
   CardHeader,
   Flex,
@@ -11,12 +15,8 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import Portrait from "@/components/atomic/Portrait/Portrait";
-import projects from "@/data/projects";
-import ProjectCard from "@/components/projects/ProjectCard/ProjectCard";
-import TechStack from "@/assets/techstack.png";
-import Swedebro from "@/assets/swedebro.png";
-import { IoSend } from "react-icons/io5";
+import { Link, createLazyFileRoute } from "@tanstack/react-router";
+import { IoDocumentText, IoSend } from "react-icons/io5";
 
 export const Route = createLazyFileRoute("/")({
   component: Home,
@@ -84,10 +84,21 @@ function Home() {
           startups and tech prototypes. I specialize in designing and building
           modern mobile and web-based apps with robust, scalable infrastructure.
         </Text>
-        <Flex mt={8} gap={8}>
-          <Button variant="outline">See my resume</Button>
+        <Flex mt={8} gap={8} flexWrap={"wrap"}>
+          <Button
+            as="a"
+            href={
+              "https://drive.google.com/file/d/16qbXckkZnhuz5DG8vsFeAw1vhCVcQV9m/view?usp=drive_link"
+            }
+            target="_blank"
+            rel="noreferrer"
+            variant="outline"
+            leftIcon={<IoDocumentText />}
+          >
+            See my resume
+          </Button>
           <Link to="/contact">
-            <Button variant="outline" colorScheme="blue">
+            <Button variant="outline" colorScheme="blue" leftIcon={<IoSend />}>
               Get in touch
             </Button>
           </Link>
@@ -120,7 +131,8 @@ function Home() {
         gap={[4, 8, 16]}
         mt={16}
       >
-        <Card
+        <PressableCard
+          to="/about"
           flex={1}
           align="center"
           backgroundColor={cardBg}
@@ -146,8 +158,9 @@ function Home() {
               <Image src={Swedebro} h={200} w={200} objectFit={"cover"} />
             </Box>
           </CardBody>
-        </Card>
-        <Card
+        </PressableCard>
+        <PressableCard
+          to="/stack"
           flex={1}
           align="center"
           backgroundColor={cardBg}
@@ -163,7 +176,7 @@ function Home() {
               <Image src={TechStack} />
             </CardBody>
           </CardHeader>
-        </Card>
+        </PressableCard>
       </Flex>
 
       <Flex
