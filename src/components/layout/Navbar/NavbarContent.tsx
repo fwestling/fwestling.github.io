@@ -75,7 +75,7 @@ const NavbarContent = () => {
                   Tech stack
                 </Button>
               </Link>
-              <Link to="/stack">
+              <Link to="/volunteering">
                 <Button variant="link" color={textColor} onClick={onClose}>
                   Volunteering
                 </Button>
