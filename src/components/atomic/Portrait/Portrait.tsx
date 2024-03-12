@@ -1,9 +1,8 @@
 import { Box, Image, useColorModeValue, useMediaQuery } from "@chakra-ui/react";
-import React from "react";
-import PortraitImage from "@/assets/projects/screenshots/demetric.png";
+import PortraitImage from "@/assets/portrait2.png";
 import { ThemeColours, useAppTheme } from "@/style/theme";
 
-const size = [null, 270, 540];
+const size = [null, 160, 320];
 
 const Portrait = () => {
   const bg = useColorModeValue(
