@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import RPhotoAlbum from "react-photo-album";
 
 import Lightbox from "yet-another-react-lightbox";
