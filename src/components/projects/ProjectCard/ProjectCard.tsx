@@ -69,6 +69,7 @@ const ProjectCard = ({ project }: Props) => {
               alt={project.title}
               height={"100%"}
               width={"100%"}
+              borderRadius={"0 12px 12px 0"}
             />
           </Box>
         )}

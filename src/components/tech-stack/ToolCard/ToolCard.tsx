@@ -1,5 +1,6 @@
+import PressableCard from "@/components/atomic/PressableCard/PressableCard";
 import { ToolInfo } from "@/data/tools";
-import { Badge, Card, Flex, Text, useColorModeValue } from "@chakra-ui/react";
+import { Badge, Flex, Text } from "@chakra-ui/react";
 import ToolIcon from "../ToolIcon/ToolIcon";
 
 type Props = {
@@ -7,34 +8,16 @@ type Props = {
 };
 
 const ToolCard = ({ tool }: Props) => {
-  const bg = useColorModeValue("whiteAlpha.600", "blackAlpha.400");
-  const shadow = useColorModeValue("#00000088", "#ffffff88");
-  const bgHov = useColorModeValue("whiteAlpha.800", "blackAlpha.800");
-
   return (
-    <Card
-      as="a"
+    <PressableCard
       href={tool.link}
-      target="_blank"
-      rel="noopener noreferrer"
       flex={0}
       align="center"
       m="auto"
-      variant="elevated"
-      backgroundColor={bg}
-      borderRadius={"xl"}
-      border="1px solid grey.400"
       minWidth={["100%", 270]}
       minHeight={[0, 270]}
       justifyContent={["flex-start", "center"]}
-      _hover={{
-        boxShadow: `0px 0px 8px 2px ${shadow}`,
-        backgroundColor: bgHov,
-      }}
       flexDirection={["row", "column"]}
-      transition={
-        "box-shadow 0.25s ease-in-out 0s, background-color 0.25s ease-in-out 0s"
-      }
     >
       <Flex flexDir={["row", "column"]} flex={[1, 0]}>
         <Flex
@@ -72,7 +55,7 @@ const ToolCard = ({ tool }: Props) => {
           </Badge>
         </Flex>
       </Flex>
-    </Card>
+    </PressableCard>
   );
 };
 

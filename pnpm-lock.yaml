@@ -20,6 +20,15 @@ dependencies:
   '@emotion/styled':
     specifier: ^11.11.0
     version: 11.11.0(@emotion/react@11.11.4)(@types/react@18.2.59)(react@18.2.0)
+  '@fontsource/inter':
+    specifier: ^5.0.17
+    version: 5.0.17
+  '@fontsource/montserrat':
+    specifier: ^5.0.17
+    version: 5.0.17
+  '@fontsource/open-sans':
+    specifier: ^5.0.26
+    version: 5.0.26
   '@tanstack/react-router':
     specifier: ^1.19.1
     version: 1.19.1(react-dom@18.2.0)(react@18.2.0)
@@ -44,6 +53,9 @@ dependencies:
   react-icons:
     specifier: ^5.0.1
     version: 5.0.1(react@18.2.0)
+  react-photo-album:
+    specifier: ^2.3.1
+    version: 2.3.1(react@18.2.0)
   rollup-plugin-visualizer:
     specifier: ^5.12.0
     version: 5.12.0
@@ -56,6 +68,9 @@ dependencies:
   vite-tsconfig-paths:
     specifier: ^4.3.1
     version: 4.3.1(typescript@5.3.3)(vite@5.1.4)
+  yet-another-react-lightbox:
+    specifier: ^3.17.1
+    version: 3.17.1(react-dom@18.2.0)(react@18.2.0)
 
 devDependencies:
   '@biomejs/biome':
@@ -2197,6 +2212,18 @@ packages:
     resolution: {integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@fontsource/inter@5.0.17:
+    resolution: {integrity: sha512-2meBGx1kt7u5LwzGc5Sz5rka6ZDrydg6nT3x6Wkt310vHXUchIywrO8pooWMzZdHYcyFY/cv4lEpJZgMD94bCg==}
+    dev: false
+
+  /@fontsource/montserrat@5.0.17:
+    resolution: {integrity: sha512-3V3F8GqeN8wawLmAkAfTCYsBYRKu+JLm6ivWWX/v0dCYYPcwtQX0h5Z8j68N1YumuT75MqrghqU42w9DnFHojQ==}
+    dev: false
+
+  /@fontsource/open-sans@5.0.26:
+    resolution: {integrity: sha512-rdLire4IvoNUeP03R37r341ezqfj/l0I8An4MYwakOoSdaHgFhZRSDVCBl/yjW6TX79P8mJbLzA2riAicQV7zw==}
+    dev: false
 
   /@humanwhocodes/config-array@0.11.14:
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
@@ -6780,6 +6807,15 @@ packages:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: true
 
+  /react-photo-album@2.3.1(react@18.2.0):
+    resolution: {integrity: sha512-c7ofDx2DAbQa9AW9wUWOBX9zUKf/QjvdQK+fPNKEiKprks/n8t4c2viyBZ6EWpQLFLU0ad3yVBTgFvxEZ46/Iw==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /react-remove-scroll-bar@2.3.5(@types/react@18.2.59)(react@18.2.0):
     resolution: {integrity: sha512-3cqjOqg6s0XbOjWvmasmqHch+RLxIEk2r/70rzGXuz3iIGQsQheEQyqYCBb5EECoD01Vo2SIbDqW4paLeLTASw==}
     engines: {node: '>=10'}
@@ -8171,6 +8207,17 @@ packages:
       string-width: 4.2.3
       y18n: 5.0.8
       yargs-parser: 21.1.1
+
+  /yet-another-react-lightbox@3.17.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-i3QHt2BNDTAmbTYX8Qbt838c++C1hAztf20ZVUmOLCiEogmb3j1L052jpfO7y7hx7SxOkntTxOYhTmrDkPpiQg==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /yn@3.1.1:
     resolution: {integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==}

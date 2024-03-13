@@ -17,6 +17,7 @@ import { Route as rootRoute } from './routes/__root'
 // Create Virtual Routes
 
 const VolunteeringLazyImport = createFileRoute('/volunteering')()
+const ThanksLazyImport = createFileRoute('/thanks')()
 const StackLazyImport = createFileRoute('/stack')()
 const ContactLazyImport = createFileRoute('/contact')()
 const AboutLazyImport = createFileRoute('/about')()
@@ -32,6 +33,11 @@ const VolunteeringLazyRoute = VolunteeringLazyImport.update({
   path: '/volunteering',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/volunteering.lazy').then((d) => d.Route))
+
+const ThanksLazyRoute = ThanksLazyImport.update({
+  path: '/thanks',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/thanks.lazy').then((d) => d.Route))
 
 const StackLazyRoute = StackLazyImport.update({
   path: '/stack',
@@ -101,6 +107,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StackLazyImport
       parentRoute: typeof rootRoute
     }
+    '/thanks': {
+      preLoaderRoute: typeof ThanksLazyImport
+      parentRoute: typeof rootRoute
+    }
     '/volunteering': {
       preLoaderRoute: typeof VolunteeringLazyImport
       parentRoute: typeof rootRoute
@@ -131,6 +141,7 @@ export const routeTree = rootRoute.addChildren([
   AboutLazyRoute,
   ContactLazyRoute,
   StackLazyRoute,
+  ThanksLazyRoute,
   VolunteeringLazyRoute,
   ProjectsAusfirstLazyRoute,
   ProjectsBuiltviewLazyRoute,

@@ -3,6 +3,7 @@ import { Box, Flex, useColorModeValue } from "@chakra-ui/react";
 import { Outlet } from "@tanstack/react-router";
 import "App.css";
 import React, { Suspense } from "react";
+import Footer from "./Footer/Footer";
 
 const XTanStackRouterDevtools =
   import.meta.env.NODE_ENV === "production"
@@ -19,9 +20,14 @@ const XTanStackRouterDevtools =
 const Root = () => {
   const background = useColorModeValue("gray.100", "gray.900");
   return (
-    <Box width="100vw" minHeight="100vh" bg={background} position="relative">
-      <Box className="background backgroundGradientTop" />
-      <Box className="background backgroundGradientBottom" />
+    <Box
+      overflow="hidden"
+      minHeight="100vh"
+      bg={background}
+      position="relative"
+    >
+      <Box width="100vw" className="background backgroundGradientTop" />
+      <Box width="100vw" className="background backgroundGradientBottom" />
       <Box display="flex" flexDirection="column" position="relative" flex={1}>
         <Navbar />
 
@@ -36,6 +42,9 @@ const Root = () => {
         >
           <Outlet />
         </Flex>
+        <Box mt="auto">
+          <Footer />
+        </Box>
         <Suspense>
           <XTanStackRouterDevtools />
         </Suspense>
