@@ -20,32 +20,37 @@ const XTanStackRouterDevtools =
 const Root = () => {
   const background = useColorModeValue("gray.100", "gray.900");
   return (
-    <Box width="100vw" minHeight="100vh" bg={background} position="relative">
-      <Box className="background backgroundGradientTop" />
-      <Box className="background backgroundGradientBottom" />
+    <Box
+      overflow="hidden"
+      minHeight="100vh"
+      bg={background}
+      position="relative"
+    >
+      <Box width="100vw" className="background backgroundGradientTop" />
+      <Box width="100vw" className="background backgroundGradientBottom" />
       <Box display="flex" flexDirection="column" position="relative" flex={1}>
         <Navbar />
 
-				<Flex
-					p={4}
-					flex={1}
-					flexDirection="column"
-					justifyContent="flex-start"
-					alignItems={"center"}
-					height="100vh"
+        <Flex
+          p={4}
+          flex={1}
+          flexDirection="column"
+          justifyContent="flex-start"
+          alignItems={"center"}
+          height="100vh"
           pb={32}
-				>
-					<Outlet />
-				</Flex>
-				<Box mt="auto">
-					<Footer />
-				</Box>
-				<Suspense>
-					<XTanStackRouterDevtools />
-				</Suspense>
-			</Box>
-		</Box>
-	);
+        >
+          <Outlet />
+        </Flex>
+        <Box mt="auto">
+          <Footer />
+        </Box>
+        <Suspense>
+          <XTanStackRouterDevtools />
+        </Suspense>
+      </Box>
+    </Box>
+  );
 };
 
 export default Root;

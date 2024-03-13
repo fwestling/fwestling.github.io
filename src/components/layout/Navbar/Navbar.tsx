@@ -28,7 +28,7 @@ const Navbar = () => {
       align="center"
       justify="space-between"
       padding="10px 16px"
-      m="32px 16px"
+      m="32px 32px"
       position={["fixed", "relative"]}
       bottom={[0, "auto"]}
       top={["auto", 0]}

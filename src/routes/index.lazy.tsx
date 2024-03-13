@@ -79,8 +79,8 @@ function Home() {
         >
           PhD, BE(Mechatronic) BS(Comp. Sci.)
         </Heading>
-        <Text variant="p" flex={1} maxW={"50%"} color={baseColor}>
-          A fullstack(+) software engineer and roboticist with a passion for
+        <Text variant="p" flex={1} maxW={["100%", "50%"]} color={baseColor}>
+          A fullstack software engineer and roboticist with a passion for
           startups and tech prototypes. I specialize in designing and building
           modern mobile and web-based apps with robust, scalable infrastructure.
         </Text>
