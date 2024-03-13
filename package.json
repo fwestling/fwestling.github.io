@@ -25,6 +25,9 @@
     "@changesets/cli": "^2.27.1",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
+    "@fontsource/inter": "^5.0.17",
+    "@fontsource/montserrat": "^5.0.17",
+    "@fontsource/open-sans": "^5.0.26",
     "@tanstack/react-router": "^1.19.1",
     "@tanstack/router-cli": "^1.19.0",
     "@tanstack/router-devtools": "^1.19.1",
@@ -33,10 +36,12 @@
     "react-blurhash": "^0.3.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
+    "react-photo-album": "^2.3.1",
     "rollup-plugin-visualizer": "^5.12.0",
     "ts-node": "^10.9.2",
     "vite-plugin-svgr": "^4.2.0",
-    "vite-tsconfig-paths": "^4.3.1"
+    "vite-tsconfig-paths": "^4.3.1",
+    "yet-another-react-lightbox": "^3.17.1"
   },
   "devDependencies": {
     "@biomejs/biome": "1.5.3",
