@@ -1,5 +1,22 @@
 # fwestling-site
 
+## 0.3.0
+
+### Minor Changes
+
+- 00e059a: Set up the general page structure
+- 78e2cbc: Updated testing to use Vitest instead of Jest
+- 48b13b6: Added homepage
+- d2c2b4a: Added about, contact and volunteering pages
+
+### Patch Changes
+
+- cd2a8d0: Added favicon
+- 74be865: Added tech stack components and page
+- efebcda: Finished footer
+- eb3b937: Updated navbars to match design
+- 63b0e08: Created project components and page
+
 ## 0.2.0
 
 ### Minor Changes
