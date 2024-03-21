@@ -1,6 +1,6 @@
 import ToolCard from "@/components/tech-stack/ToolCard/ToolCard";
 import { tools } from "@/data/tools";
-import { Box, Divider, Heading, Text } from "@chakra-ui/react";
+import { Box, Divider, Heading } from "@chakra-ui/react";
 import { createLazyFileRoute } from "@tanstack/react-router";
 
 export const Route = createLazyFileRoute("/stack")({
