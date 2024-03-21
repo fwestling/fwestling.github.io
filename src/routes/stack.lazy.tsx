@@ -28,7 +28,6 @@ function Stack() {
           <ToolCard key={tool.name} tool={tool} />
         ))}
       </Box>
-      <Text mt={8}>More information coming soon!</Text>
     </Box>
   );
 }
