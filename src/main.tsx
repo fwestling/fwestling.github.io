@@ -3,7 +3,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getAnalytics, logEvent } from "firebase/analytics";
+
+// Import the generated route tree
+import { routeTree } from "./routeTree.gen";
+import { ChakraProvider } from "@chakra-ui/react";
+import theme from "./style/theme";
 
 // These are safe to store in code, as per Firebase's security settings.
 const firebaseConfig = {
@@ -19,10 +24,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-// Import the generated route tree
-import { routeTree } from "./routeTree.gen";
-import { ChakraProvider } from "@chakra-ui/react";
-import theme from "./style/theme";
+logEvent(analytics, "app_opened");
 
 // Create a new router instance
 const router = createRouter({ routeTree });
