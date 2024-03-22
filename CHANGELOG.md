@@ -1,5 +1,11 @@
 # fwestling-site
 
+## 0.4.1
+
+### Patch Changes
+
+- 0260bb6: Added firebase
+
 ## 0.4.0
 
 ### Minor Changes
