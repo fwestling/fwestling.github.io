@@ -23,6 +23,7 @@ const ContactLazyImport = createFileRoute('/contact')()
 const AboutLazyImport = createFileRoute('/about')()
 const IndexLazyImport = createFileRoute('/')()
 const ProjectsIndexLazyImport = createFileRoute('/projects/')()
+const ProjectsNiarcLazyImport = createFileRoute('/projects/niarc')()
 const ProjectsDemetricLazyImport = createFileRoute('/projects/demetric')()
 const ProjectsBuiltviewLazyImport = createFileRoute('/projects/builtview')()
 const ProjectsAusfirstLazyImport = createFileRoute('/projects/ausfirst')()
@@ -64,6 +65,13 @@ const ProjectsIndexLazyRoute = ProjectsIndexLazyImport.update({
   getParentRoute: () => rootRoute,
 } as any).lazy(() =>
   import('./routes/projects/index.lazy').then((d) => d.Route),
+)
+
+const ProjectsNiarcLazyRoute = ProjectsNiarcLazyImport.update({
+  path: '/projects/niarc',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./routes/projects/niarc.lazy').then((d) => d.Route),
 )
 
 const ProjectsDemetricLazyRoute = ProjectsDemetricLazyImport.update({
@@ -127,6 +135,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsDemetricLazyImport
       parentRoute: typeof rootRoute
     }
+    '/projects/niarc': {
+      preLoaderRoute: typeof ProjectsNiarcLazyImport
+      parentRoute: typeof rootRoute
+    }
     '/projects/': {
       preLoaderRoute: typeof ProjectsIndexLazyImport
       parentRoute: typeof rootRoute
@@ -146,6 +158,7 @@ export const routeTree = rootRoute.addChildren([
   ProjectsAusfirstLazyRoute,
   ProjectsBuiltviewLazyRoute,
   ProjectsDemetricLazyRoute,
+  ProjectsNiarcLazyRoute,
   ProjectsIndexLazyRoute,
 ])
 
