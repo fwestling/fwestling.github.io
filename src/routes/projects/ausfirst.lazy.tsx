@@ -91,7 +91,6 @@ const tools: ToolInfo[] = [
 
 function AusFirst() {
 	const baseColor = useColorModeValue("gray.800", "gray.200");
-	const highlightColor = useColorModeValue("purple", "white");
 
 	return (
 		<Box maxW={1024}>
