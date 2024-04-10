@@ -1,5 +1,11 @@
 # fwestling-site
 
+## 0.5.0
+
+### Minor Changes
+
+- da59251: Added some project details
+
 ## 0.4.1
 
 ### Patch Changes
