@@ -1,5 +1,11 @@
 # fwestling-site
 
+## 0.7.0
+
+### Minor Changes
+
+- 0f30310: Add Ark project
+
 ## 0.5.0
 
 ### Minor Changes
