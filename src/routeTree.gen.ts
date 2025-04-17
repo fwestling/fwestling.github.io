@@ -27,6 +27,7 @@ const ProjectsNiarcLazyImport = createFileRoute('/projects/niarc')()
 const ProjectsDemetricLazyImport = createFileRoute('/projects/demetric')()
 const ProjectsBuiltviewLazyImport = createFileRoute('/projects/builtview')()
 const ProjectsAusfirstLazyImport = createFileRoute('/projects/ausfirst')()
+const ProjectsArkLazyImport = createFileRoute('/projects/ark')()
 
 // Create/Update Routes
 
@@ -95,6 +96,11 @@ const ProjectsAusfirstLazyRoute = ProjectsAusfirstLazyImport.update({
   import('./routes/projects/ausfirst.lazy').then((d) => d.Route),
 )
 
+const ProjectsArkLazyRoute = ProjectsArkLazyImport.update({
+  path: '/projects/ark',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/projects/ark.lazy').then((d) => d.Route))
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -121,6 +127,10 @@ declare module '@tanstack/react-router' {
     }
     '/volunteering': {
       preLoaderRoute: typeof VolunteeringLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/projects/ark': {
+      preLoaderRoute: typeof ProjectsArkLazyImport
       parentRoute: typeof rootRoute
     }
     '/projects/ausfirst': {
@@ -155,6 +165,7 @@ export const routeTree = rootRoute.addChildren([
   StackLazyRoute,
   ThanksLazyRoute,
   VolunteeringLazyRoute,
+  ProjectsArkLazyRoute,
   ProjectsAusfirstLazyRoute,
   ProjectsBuiltviewLazyRoute,
   ProjectsDemetricLazyRoute,
